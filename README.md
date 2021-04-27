@@ -1,3 +1,3 @@
-Spring Webflux with gRPC
+Spring Webflux Microservices with gRPC
 =
-A sample Spring Webflux micro-services using gRPC as inter-service communication protocol.
+A sample Spring Webflux micro-services with no inter-service communication.
