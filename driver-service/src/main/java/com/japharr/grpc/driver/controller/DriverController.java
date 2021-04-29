@@ -35,6 +35,11 @@ public class DriverController {
         return driverService.getDriversCarById(driverId);
     }
 
+    @GetMapping("/drivers/{id}/car")
+    public Mono<CarDto> getDriversCar(@PathVariable("id") Long driverId) {
+        return driverService.getCars(driverId);
+    }
+
     @DeleteMapping("/drivers/{id}")
     public Mono<ResponseEntity<Void>> deleteDriver(@PathVariable("id") Long id) {
         return driverService.deleteDriver(id)
