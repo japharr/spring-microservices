@@ -23,6 +23,11 @@ public class DriverService {
             .map(r -> new DriverDto(r.getId(), r.getName()));
     }
 
+    public Mono<DriverDto> getDriver(Long id) {
+        return driverRepository.findById(id)
+            .map(r -> new DriverDto(r.getId(), r.getName()));
+    }
+
     public Mono<DriverDto> addDriver(Driver car) {
         return driverRepository.save(car)
             .map(r-> new DriverDto(r.getId(), r.getName()));

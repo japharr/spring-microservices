@@ -13,6 +13,12 @@ spring:
       host: ${MONGO_HOST:localhost}
       port: ${MONGO_PORT:27017}
       database: ${MONGO_DB:test_22}
+  rsocket:
+    server:
+      transport: tcp
+      mapping-part: /rsocket
+      port: 7002
+
 server:
   port: ${SERVER_PORT:8082}
 
@@ -22,6 +28,9 @@ keycloak:
 
 eureka:
   instance:
+    metadataMap:
+      tcp: ${spring.rsocket.server.port}
+      rsocketPort: ${spring.rsocket.server.port}
     preferIpAddress: true
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
   client:
