@@ -5,9 +5,14 @@ import com.japharr.grpc.driver.repository.DriverRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurityAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.rsocket.RSocketSecurityAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
 import reactor.core.publisher.Flux;
 
 import java.util.Set;
@@ -15,6 +20,7 @@ import java.util.Set;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @SpringBootApplication
+//@SpringBootApplication(exclude = {ReactiveUserDetailsServiceAutoConfiguration.class, SecurityAutoConfiguration.class, ReactiveSecurityAutoConfiguration.class, RSocketSecurityAutoConfiguration.class})
 public class DriverServiceStarter {
 
 	public static void main(String[] args) {

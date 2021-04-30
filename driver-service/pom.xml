@@ -3,7 +3,7 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>spring-grpc</artifactId>
+		<artifactId>spring-rsocket</artifactId>
 		<groupId>com.japharr</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
@@ -37,7 +37,24 @@
 			<groupId>org.mvnsearch</groupId>
 			<artifactId>rsocket-loadbalance-spring-boot-starter</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
+			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-jose</artifactId>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.security</groupId>-->
+<!--			<artifactId>spring-security-rsocket</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.security</groupId>-->
+<!--			<artifactId>spring-security-messaging</artifactId>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,12 +66,6 @@
 			<groupId>io.projectreactor</groupId>
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mvnsearch</groupId>
-			<artifactId>rsocket-loadbalance-spring-boot-starter</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

@@ -1,6 +1,13 @@
 spring:
   application:
     name: driver-service
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${keycloak.auth-url}/realms/${keycloak.realm}/protocol/openid-connect/certs # JSON Web Key URI to use to verify the JWT token.
+
   data:
     mongodb:
       host: ${MONGO_HOST:localhost}
@@ -8,6 +15,10 @@ spring:
       database: ${MONGO_DB:test_22}
 server:
   port: ${SERVER_PORT:8082}
+
+keycloak:
+  realm: ${KEYCLOAK_REALM:myrealm}
+  auth-url: http://${KEYCLOAK_HOST:localhost}:${KEYCLOAK_PORT:7070}/auth
 
 eureka:
   instance:
